@@ -13,7 +13,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<h1 class="alert alert-info" data-ng-show="loading">LOADING</h1>
+<h1 class="alert alert-info" data-ng-show="loading">Loading {{ searchTerm }} Vids</h1>
 <h1 class="alert alert-danger"data-ng-show="!videos.length && searchTerm && !loading">NOTHING FOUND</h1>
 
 
@@ -23,4 +23,5 @@
     </video>
     <p class="lead">{{ item.description | limitTo:50 }}</p>
   </div>
+  <button class="col-sm-12 btn btn-primary btn-lg" data-ng-click="loadMore()" />Get More</button>
 </div>
