@@ -3,10 +3,15 @@
 <h1 class="alert alert-info" data-ng-show="loading">LOADING</h1>
 <h1 class="alert alert-danger"data-ng-show="!videos.length && searchTerm && !loading">NOTHING FOUND</h1>
 
+<video id="player">
+  <source src="{{ videoURL }}" type="video/mp4">
+</video>
+
+
 <div class="row">
   <div class="col-sm-4" data-ng-repeat="item in videos">
-    <div class="thumbnail">
-      <a href="{{ item.videoUrl }}"><img data-ng-src="{{ item.thumbnailUrl }}" /></a>
+    <div class="thumbnail" id="vine-{{ item.postId }}">
+      <a data-ng-click="playVideo(item)"><img data-ng-src="{{ item.thumbnailUrl }}" /></a>
     </div>
   </div>
 </div>
