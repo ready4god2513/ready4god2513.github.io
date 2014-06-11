@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "dependencies": {
     "angular": "latest",
-    "bootstrap": "latest",
     "angular-ui-bootstrap": "latest",
     "angular-ui-router": "latest",
     "angular-loading-bar": "latest",

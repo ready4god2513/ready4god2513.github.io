@@ -1,22 +1,43 @@
-<input type="text" data-ng-model="searchTerm" class="col-sm-12 input-lg" placeholder="filter videos" />
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Quick Vine</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" data-ng-model="searchTerm" class="col-sm-12 input-lg" placeholder="filter videos" id="searchTerm" />
+        </div>
+      </form>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
 <h1 class="alert alert-info" data-ng-show="loading">LOADING</h1>
 <h1 class="alert alert-danger"data-ng-show="!videos.length && searchTerm && !loading">NOTHING FOUND</h1>
 
-<video id="player">
-  <source src="{{ videoURL }}" type="video/mp4">
-</video>
+<div class="hidden">
+  <video id="player" width="100%">
+    <source src="{{ videoURL }}" type="video/mp4">
+  </video>
+</div>
 
 
-<div class="row">
-  <div class="well col-sm-6" data-ng-repeat="item in videos">
-    <div class="col-md-8">
-    <div class="thumbnail" id="vine-{{ item.postId }}">
+<div class="row" id="top">
+  <div class="well col-md-6" data-ng-repeat="item in videos">
+    <div id="vine-{{ item.postId }}">
       <a data-ng-click="playVideo(item)"><img data-ng-src="{{ item.thumbnailUrl }}" /></a>
     </div>
-  </div>
-  <div class="col-md-4">
-    <p>{{ item.description | limitTo: 75 }}</p>
-  </div>
+    <p class="lead">{{ item.description }}</p>
   </div>
 </div>
