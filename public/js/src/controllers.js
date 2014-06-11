@@ -19,21 +19,21 @@ app.controller('VideoController', ['$scope', '$timeout', '$location', '$anchorSc
         VineService.get({ tag: $scope.searchTerm, page: page }, function(response){
           $scope.videos = response.data.records;
           $scope.loading = false;
+          console.log($scope.videos);
         });
       }
 
-      // $location.hash('top');
       $anchorScroll();
     };
 
-    $scope.playVideo = function(video){
-      var player = document.getElementById("player").cloneNode(true),
-          item = document.getElementById("vine-" + video.postId);
-      item.innerHTML = null;
-      item.appendChild(player);
-      player.setAttribute('src', video.videoUrl);
-      player.setAttribute('width', '100%');
-      player.play();
+    $scope.toggleVideo = function(video){
+      var player = document.getElementById("vine-" + video.postId);
+
+      if(!player.getAttribute('src'))
+      {
+        player.setAttribute('src', video.videoUrl);
+        player.play();
+      }
 
       player.addEventListener('click', function(){
         if(player.paused){
