@@ -23,5 +23,5 @@
     </video>
     <p class="lead">{{ item.description | limitTo:50 }}</p>
   </div>
-  <button class="col-sm-12 btn btn-primary btn-lg" data-ng-click="loadMore()" />Get More</button>
+  <button class="col-sm-12 btn btn-primary btn-lg" data-ng-click="loadMore()" data-ng-show="searchTerm" />Get More</button>
 </div>
