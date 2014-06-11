@@ -31,6 +31,6 @@
   <div class="well col-md-6" data-ng-repeat="item in videos">
     <video data-ng-click="toggleVideo(item)" id="vine-{{ item.postId }}" width="100%" poster="{{ item.thumbnailUrl }}">
     </video>
-    <p class="lead">{{ item.description }}</p>
+    <p class="lead">{{ item.description | limitTo:50 }}</p>
   </div>
 </div>
