@@ -9,6 +9,8 @@ app.controller('VideoController', ['$scope', '$timeout', '$location', '$anchorSc
     var doSearchTimeout = false;
 
     $scope.searchVids = function(page){
+      ga('send', 'pageview', 'vine/' + $scope.searchTerm);
+
       if(!$scope.searchTerm){
         $scope.videos = [];
       }
@@ -19,7 +21,6 @@ app.controller('VideoController', ['$scope', '$timeout', '$location', '$anchorSc
         VineService.get({ tag: $scope.searchTerm, page: page }, function(response){
           $scope.videos = response.data.records;
           $scope.loading = false;
-          console.log($scope.videos);
         });
       }
 
