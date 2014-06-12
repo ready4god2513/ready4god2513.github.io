@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('VideoController', ['$scope', '$timeout', 'VineSearch', 'VinePopular', 'VineRecent', 'VineChannels', 
-  function($scope, $timeout, VineSearch, VinePopular, VineRecent, VineChannels){
+app.controller('VideoController', ['$scope', '$timeout', 'Vine', 
+  function($scope, $timeout, Vine){
 
     $scope.videos = [];
     $scope.loading = false;
@@ -22,16 +22,15 @@ app.controller('VideoController', ['$scope', '$timeout', 'VineSearch', 'VinePopu
         $scope.loading = true;
 
         if($scope.category){
-          VineRecent.get({ tag: $scope.category.featuredChannelId, page: $scope.page }, function(response){
-            $scope.videos.push.apply($scope.videos, response.data.records);
+          Vine.channel($scope.category.featuredChannelId, $scope.page, function(response){
+            $scope.videos.push.apply($scope.videos, response.records);
             $scope.loading = false;
-            console.log(response.data.records);
           });
         }
         else
         {
-          VineSearch.get({ tag: $scope.searchTerm, page: $scope.page }, function(response){
-            $scope.videos.push.apply($scope.videos, response.data.records);
+          Vine.search($scope.searchTerm, $scope.page, function(response){
+            $scope.videos.push.apply($scope.videos, response.records);
             $scope.loading = false;
           });
         }
@@ -39,8 +38,8 @@ app.controller('VideoController', ['$scope', '$timeout', 'VineSearch', 'VinePopu
     };
 
     $scope.loadCategories = function(){
-      VineChannels.get({}, function(response){
-        $scope.categories = response.data.records;
+      Vine.channels(function(response){
+        $scope.categories = response.records;
       });
     };
 
