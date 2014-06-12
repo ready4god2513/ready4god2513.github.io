@@ -1,0 +1,20 @@
+<div class="page-header">
+  <h1 class="text-center">Quick Instagram</h1>
+</div>
+
+
+<div class="row">
+  <div class="text-center col-sm-8 col-sm-offset-2">
+    <input type="text" data-ng-model="tag" class="col-sm-12 input-lg" placeholder="search images" id="searchTerm" />
+    <hr  /><br />
+  </div>
+</div>
+
+<h1 class="alert alert-danger"data-ng-show="!pics.length && tag && !loading">NOTHING FOUND</h1>
+
+<div class="row" id="top" data-ng-init="loadPics()">
+  <div class="well col-xs-12 col-sm-6 col-md-6 col-lg-4" data-ng-repeat="pic in pics">
+    <img data-ng-src="{{ pic.images.thumbnail.url }}" />
+  </div>
+  <button class="col-sm-12 btn btn-primary btn-lg" data-ng-click="loadMore()" data-ng-show="searchTerm" />Get More</button>
+</div>

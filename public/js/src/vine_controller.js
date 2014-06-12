@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('VideoController', ['$scope', '$timeout', 'Vine', 
+app.controller('VineController', ['$scope', '$timeout', 'Vine', 
   function($scope, $timeout, Vine){
 
     $scope.videos = [];
