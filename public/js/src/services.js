@@ -1,21 +1,22 @@
 'use strict';
 
 app.factory('Vine', ['$http', function($http){
+  var baseURL = 'http://bhvine.herokuapp.com';
   return {
     search: function(tag, page, callback){
-      $http.jsonp('http://bhvine.herokuapp.com/search/' + tag + '?page=' + page + '&callback=JSON_CALLBACK').success(function(response){
-        callback(response.data);
+      $http.jsonp(baseURL + '/search/' + tag + '?page=' + page + '&callback=JSON_CALLBACK').success(function(response){
+2        callback(response.data);
       });
     },
 
     channel: function(tag, page, callback){
-      $http.jsonp('http://bhvine.herokuapp.com/recent/' + tag + '?page=' + page + '&callback=JSON_CALLBACK').success(function(response){
+      $http.jsonp(baseURL + '/recent/' + tag + '?page=' + page + '&callback=JSON_CALLBACK').success(function(response){
         callback(response.data);
       });
     },
 
     channels: function(callback){
-      $http.jsonp('http://bhvine.herokuapp.com/channels?callback=JSON_CALLBACK').success(function(response){
+      $http.jsonp(baseURL + '/channels?callback=JSON_CALLBACK').success(function(response){
         callback(response.data);
       });
     },
