@@ -10,6 +10,7 @@ app.controller('InstagramController', ['$scope', '$timeout', 'Instagram',
     var doSearchTimeout = false;
 
     $scope.loadPics = function(){
+      ga('send', 'pageview', 'instagram/' + $scope.tag);
       $scope.loading = true;
       Instagram.search($scope.tag, function(data){
         $scope.loading = false;
