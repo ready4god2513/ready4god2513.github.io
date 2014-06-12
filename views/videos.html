@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" data-ng-init="loadCategories()">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header hidden-xs">
@@ -7,21 +7,23 @@
 
     <form class="navbar-form navbar-right" role="search">
       <div class="form-group">
-        <input type="text" data-ng-model="searchTerm" class="col-sm-12 input-lg" placeholder="filter videos" id="searchTerm" />
+        <input type="text" data-ng-hide="category" data-ng-model="searchTerm" class="input-lg" placeholder="filter videos" id="searchTerm" />
+        <select data-ng-model="category" class="input-lg" data-ng-options="category.channel for category in categories">
+          <option value="">---Recent By Category---</option>
+        </select>
       </div>
     </form>
   </div><!-- /.container-fluid -->
 </nav>
 
-<h1 class="alert alert-info" data-ng-show="loading">Loading {{ searchTerm }} Vids</h1>
+<h1 class="alert alert-info" data-ng-show="loading">Fetching Videos</h1>
 <h1 class="alert alert-danger"data-ng-show="!videos.length && searchTerm && !loading">NOTHING FOUND</h1>
-
 
 <div class="row" id="top">
   <div class="well col-xs-12 col-sm-6 col-md-6 col-lg-4" data-ng-repeat="item in videos">
     <video data-ng-click="toggleVideo(item)" id="vine-{{ item.postId }}" width="100%" poster="{{ item.thumbnailUrl }}">
     </video>
-    <p class="lead">{{ item.description | limitTo:50 }}</p>
+    <p class="lead"><a data-ng-href="{{ item.permalinkUrl }}" target="_blank" title="Created {{ item.created }} by {{ item.username }}" />{{ item.description | limitTo:50 }}</a></p>
   </div>
   <button class="col-sm-12 btn btn-primary btn-lg" data-ng-click="loadMore()" data-ng-show="searchTerm" />Get More</button>
 </div>
