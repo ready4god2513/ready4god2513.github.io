@@ -5,7 +5,7 @@ app.factory('Vine', ['$http', function($http){
   return {
     search: function(tag, page, callback){
       $http.jsonp(baseURL + '/search/' + tag + '?page=' + page + '&callback=JSON_CALLBACK').success(function(response){
-2        callback(response.data);
+        callback(response.data);
       });
     },
 
