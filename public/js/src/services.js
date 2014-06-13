@@ -34,3 +34,15 @@ app.factory('Instagram', ['$http', function($http){
     }
   }
 }]);
+
+app.factory('Imgur', ['$http', function($http){
+  var baseURL = 'http://bhvine.herokuapp.com/imgur/';
+
+  return {
+    search: function(search, page, callback){
+      $http.jsonp(baseURL + search + '/' + page + '?callback=JSON_CALLBACK').success(function(response){
+        callback(response.data);
+      });
+    }
+  }
+}]);

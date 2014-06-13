@@ -11,6 +11,10 @@ app.config(['$routeProvider', function($routeProvider){
       templateUrl: '/views/instagram.html',
       controller: 'InstagramController'
     })
+    .when('/imgur', {
+      templateUrl: '/views/imgur.html',
+      controller: 'ImgurController'
+    })
     .otherwise({
       redirectTo: '/vine'
     });
