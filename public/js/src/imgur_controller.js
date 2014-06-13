@@ -15,6 +15,7 @@ app.controller('ImgurController', ['$scope', '$timeout', 'Imgur',
 
       $scope.images = [];
       window.scrollTo(0, 0);
+      ga('send', 'pageview', 'reddit/' + $scope.search);
 
       if($scope.recent){
         Imgur.recent($scope.page, function(data){
