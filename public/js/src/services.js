@@ -43,6 +43,18 @@ app.factory('Imgur', ['$http', function($http){
       $http.jsonp(baseURL + search + '/' + page + '?callback=JSON_CALLBACK').success(function(response){
         callback(response.data);
       });
+    },
+
+    recent: function(page, callback){
+      $http.jsonp(baseURL + 'recent/' + page + '?callback=JSON_CALLBACK').success(function(response){
+        callback(response.data);
+      });
+    },
+
+    subrecent: function(search, page, callback){
+      $http.jsonp(baseURL + 'sub/' + search + '/' + page + '?callback=JSON_CALLBACK').success(function(response){
+        callback(response.data);
+      });
     }
   }
 }]);

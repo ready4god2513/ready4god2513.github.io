@@ -17,7 +17,7 @@
 <h1 class="alert alert-danger"data-ng-show="!videos.length && searchTerm && !loading">NOTHING FOUND</h1>
 
 <div class="row" id="top">
-  <div class="well col-xs-12 col-sm-6 col-md-6 col-lg-4" data-ng-repeat="item in videos">
+  <div class="well col-xs-12 col-md-6 col-lg-4" data-ng-repeat="item in videos">
     <video data-ng-click="toggleVideo(item)" id="vine-{{ item.postId }}" width="100%" poster="{{ item.thumbnailUrl }}">
     </video>
     <p class="lead"><a data-ng-href="{{ item.permalinkUrl }}" target="_blank" title="Created {{ item.created }} by {{ item.username }}" />{{ item.description | limitTo:50 }}</a></p>

@@ -5,7 +5,11 @@
 
 <div class="row">
   <div class="text-center col-sm-8 col-sm-offset-2">
-    <input type="text" data-ng-model="search" class="col-sm-12 input-lg" placeholder="search images" id="searchTerm" />
+    <div data-ng-hide="recent">
+      <input type="text" data-ng-model="search" class="col-sm-12 input-lg" placeholder="search images" id="searchTerm" />
+    </div>
+    <div data-ng-hide="recent"><input type="checkbox" data-ng-model="sub" />Search a Subreddit</div>
+    <div data-ng-hide="sub"><input type="checkbox" data-ng-model="recent" />Show Recent</div>
     <hr  /><br />
   </div>
 </div>
@@ -13,8 +17,8 @@
 <h1 class="alert alert-danger"data-ng-show="!images.length && search && !loading">NOTHING FOUND</h1>
 
 <div class="row" id="top" data-ng-init="loadImages()">
-  <div class="well col-xs-12 col-sm-6 col-md-6 col-lg-4" data-ng-repeat="image in images | filter:{is_album: false}">
-    <img data-ng-src="{{ image.link }}" />
+  <div class="well col-xs-12 col-md-6 col-lg-4" data-ng-repeat="image in images | filter: { link: '!/a/'}">
+    <a data-ng-href="{{ image.link }}" target="_blank"><img data-ng-src="{{ image.link }}" /></a>
   </div>
-  <button class="col-sm-12 btn btn-primary btn-lg" data-ng-click="loadMore()" data-ng-show="searchTerm" />Get More</button>
+  <button class="col-sm-12 btn btn-primary btn-lg" data-ng-click="loadMore()" />Get More</button>
 </div>
