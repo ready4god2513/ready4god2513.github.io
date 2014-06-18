@@ -4,7 +4,7 @@ app.controller('ImgurController', ['$scope', '$timeout', 'Imgur',
   function($scope, $timeout, Imgur){
 
     $scope.images = [];
-    $scope.search = 'testing';
+    $scope.search = 'basketball';
     $scope.page = 1;
     $scope.loading = false;
     $scope.recent = false;

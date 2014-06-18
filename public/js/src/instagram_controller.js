@@ -4,7 +4,7 @@ app.controller('InstagramController', ['$scope', '$timeout', 'Instagram',
   function($scope, $timeout, Instagram){
 
     $scope.pics = [];
-    $scope.tag = 'fail';
+    $scope.tag = 'jesus';
     $scope.loading = false;
     $scope.maxID = null;
 

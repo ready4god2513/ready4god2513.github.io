@@ -5,7 +5,7 @@ app.controller('VineController', ['$scope', '$timeout', 'Vine',
 
     $scope.videos = [];
     $scope.loading = false;
-    $scope.searchTerm = "fail";
+    $scope.searchTerm = "drums";
     $scope.page = 1;
     $scope.categories = [];
     $scope.category = null;
