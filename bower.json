@@ -6,7 +6,10 @@
     "angular-ui-bootstrap": "latest",
     "angular-ui-router": "latest",
     "angular-loading-bar": "latest",
-    "bootstrap": "latest"
+    "bootstrap": "latest",
+    "imagesloaded": "latest",
+    "masonry": "latest",
+    "angular-masonry": "latest"
   },
   "private": true
 }

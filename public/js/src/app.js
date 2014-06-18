@@ -1,4 +1,4 @@
-var app = angular.module('vine', ['ngResource', 'ngRoute']);
+var app = angular.module('vine', ['ngResource', 'ngRoute', 'masonry']);
 
 app.config(['$routeProvider', function($routeProvider){
 
@@ -14,6 +14,10 @@ app.config(['$routeProvider', function($routeProvider){
     .when('/imgur', {
       templateUrl: '/views/imgur.html',
       controller: 'ImgurController'
+    })
+    .when('/amazon', {
+      templateUrl: '/views/amazon.html',
+      controller: 'AmazonController'
     })
     .otherwise({
       redirectTo: '/vine'

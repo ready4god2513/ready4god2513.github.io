@@ -25,11 +25,23 @@ app.factory('Vine', ['$http', function($http){
 
 app.factory('Instagram', ['$http', function($http){
   return {
-    search: function(tag, callback){
-      var endPoint = 'https://api.instagram.com/v1/tags/' + tag + '/media/recent?client_id=642176ece1e7445e99244cec26f4de1f&callback=JSON_CALLBACK';
+    search: function(tag, maxID, callback){
+      var endPoint = 'https://api.instagram.com/v1/tags/' + tag + '/media/recent?max_tag_id=' + maxID + '&client_id=642176ece1e7445e99244cec26f4de1f&callback=JSON_CALLBACK';
 
       $http.jsonp(endPoint).success(function(response){
-        callback(response.data);
+        callback(response);
+      });
+    }
+  }
+}]);
+
+app.factory('Amazon', ['$http', function($http){
+  return {
+    search: function(category, search, callback){
+      var endPoint = 'http://bhvine.herokuapp.com/amazon/' + category + '/' + search +  '?callback=JSON_CALLBACK';
+
+      $http.jsonp(endPoint).success(function(response){
+        callback(response.ItemSearchResponse.Items);
       });
     }
   }

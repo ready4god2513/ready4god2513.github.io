@@ -16,9 +16,14 @@
 
 <h1 class="alert alert-danger"data-ng-show="!images.length && search && !loading">NOTHING FOUND</h1>
 
-<div class="row" id="top" data-ng-init="loadImages()">
-  <div class="well col-xs-12 col-md-6 col-lg-4" data-ng-repeat="image in images | filter: { link: '!/a/'}">
-    <a data-ng-href="{{ image.link }}" target="_blank"><img data-ng-src="{{ image.link }}" /></a>
+<div data-masonry='{ "transitionDuration" : "0.4s" , "itemSelector" : ".tile"}' class="row" id="posts" data-ng-init="loadImages()">
+  <div data-masonry-tile class="tile col-xs-12 col-md-6 col-lg-4" data-ng-repeat="image in images | filter: { link: '!/a/'}">
+    <div class="well">
+      <a data-ng-href="{{ image.link }}" target="_blank"><img data-ng-src="{{ image.link }}" /></a>
+    </div>
   </div>
-  <button class="col-sm-12 btn btn-primary btn-lg" data-ng-click="loadMore()" />Get More</button>
+</div>
+
+<div class="row">
+  <button class="col-xs-12 btn btn-primary btn-lg" data-ng-click="loadMore()" />Get More</button>
 </div>

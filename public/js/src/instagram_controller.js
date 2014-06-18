@@ -6,15 +6,17 @@ app.controller('InstagramController', ['$scope', '$timeout', 'Instagram',
     $scope.pics = [];
     $scope.tag = 'fail';
     $scope.loading = false;
+    $scope.maxID = null;
 
     var doSearchTimeout = false;
 
     $scope.loadPics = function(){
       ga('send', 'pageview', 'instagram/' + $scope.tag);
       $scope.loading = true;
-      Instagram.search($scope.tag, function(data){
+      Instagram.search($scope.tag, $scope.maxID, function(res){
+        $scope.maxID = res.pagination.next_max_id;
         $scope.loading = false;
-        $scope.pics = data;
+        $scope.pics.push.apply($scope.pics, res.data);
       });
     };
 
@@ -24,8 +26,9 @@ app.controller('InstagramController', ['$scope', '$timeout', 'Instagram',
       }
 
       doSearchTimeout = $timeout(function(){
+        $scope.pics = [];
         $scope.loadPics();
-      }, 250);
+      }, 500);
     });
 
 }]);

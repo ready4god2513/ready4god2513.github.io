@@ -18,11 +18,16 @@ module.exports = function(grunt) {
 
     uglify: {
       options: {
-        beautify: false // Set to true to see a clean output
+        beautify: true,
+        mangle: false,
+        compress: false
       },
       js: {
         files: {
           'public/js/app-min.js': [
+            'public/lib/masonry/dist/masonry.pkgd.js',
+            'public/lib/imagesloaded/imagesloaded.js',
+            'public/lib/angular-masonry/angular-masonry.js',
             'public/js/src/app.js',
             'public/js/src/*.js'
           ]
