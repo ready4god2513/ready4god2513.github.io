@@ -1840,7 +1840,7 @@ app.controller("AmazonController", [ "$scope", "$timeout", "Amazon", function($s
 
 app.controller("ImgurController", [ "$scope", "$timeout", "Imgur", function($scope, $timeout, Imgur) {
     $scope.images = [];
-    $scope.search = "testing";
+    $scope.search = "basketball";
     $scope.page = 1;
     $scope.loading = false;
     $scope.recent = false;
@@ -1893,7 +1893,7 @@ app.controller("ImgurController", [ "$scope", "$timeout", "Imgur", function($sco
 
 app.controller("InstagramController", [ "$scope", "$timeout", "Instagram", function($scope, $timeout, Instagram) {
     $scope.pics = [];
-    $scope.tag = "fail";
+    $scope.tag = "jesus";
     $scope.loading = false;
     $scope.maxID = null;
     var doSearchTimeout = false;
@@ -1988,7 +1988,7 @@ app.factory("Imgur", [ "$http", function($http) {
 app.controller("VineController", [ "$scope", "$timeout", "Vine", function($scope, $timeout, Vine) {
     $scope.videos = [];
     $scope.loading = false;
-    $scope.searchTerm = "fail";
+    $scope.searchTerm = "drums";
     $scope.page = 1;
     $scope.categories = [];
     $scope.category = null;
