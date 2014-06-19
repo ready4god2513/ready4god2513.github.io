@@ -1915,7 +1915,6 @@ app.controller("InstagramController", [ "$scope", "$timeout", "Instagram", funct
             $scope.maxID = res.pagination.next_max_id;
             $scope.loading = false;
             $scope.pics.push.apply($scope.pics, res.data);
-            console.log($scope.pics);
         });
     };
     $scope.$watch("tag", function() {
