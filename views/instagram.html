@@ -18,7 +18,8 @@
     <div class="well">
       <a href="{{ pic.link }}" target="_blank"><img data-ng-src="{{ pic.images.standard_resolution.url }}" /></a>
       <h5>
-        <span class="text-danger"><span class="glyphicon glyphicon-heart"></span> {{ pic.likes.count }}</span> 
+        <span class="text-danger"><span class="glyphicon glyphicon-heart"></span> {{ pic.likes.count }}</span> &nbsp;
+        <span class="text-muted"><span class="glyphicon glyphicon-comment"></span> {{ pic.comments.count }}</span> 
         <a href="http://instagram.com/{{ pic.user.username }}" target="_blank" class="pull-right"><span class="text-muted">{{ pic.user.username }}</span></a>
       </h5>
     </div>
