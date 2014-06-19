@@ -20,7 +20,7 @@
       <h5>
         <span class="text-danger"><span class="glyphicon glyphicon-heart"></span> {{ pic.likes.count }}</span> &nbsp;
         <span class="text-muted"><span class="glyphicon glyphicon-comment"></span> {{ pic.comments.count }}</span> 
-        <a href="http://instagram.com/{{ pic.user.username }}" target="_blank" class="pull-right"><span class="text-muted">{{ pic.user.username }}</span></a>
+        <a href="http://instagram.com/{{ pic.user.username }}" target="_blank" class="pull-right"><span class="text-muted">{{ pic.user.username | limitTo: 20 }}</span></a>
       </h5>
     </div>
   </div>
