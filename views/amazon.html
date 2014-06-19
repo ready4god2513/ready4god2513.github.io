@@ -4,18 +4,24 @@
 
 
 <div class="row">
-  <div class="text-center col-sm-8 col-sm-offset-2">
-    <div data-ng-hide="recent">
-      <input type="text" data-ng-model="search" class="col-sm-12 input-lg" placeholder="search images" id="searchTerm" />
+  <div class="col-xs-12">
+    <input type="text" data-ng-model="search" class="col-xs-12 input-lg" placeholder="search products" id="searchTerm" />
+  </div>
+</div>
+
+<hr  /><br />
+
+<h1 class="alert alert-danger"data-ng-show="!images.length && search && !loading">NOTHING FOUND</h1>
+
+
+<div data-masonry='{ "transitionDuration" : "0.4s" , "itemSelector" : ".tile"}' class="row" id="posts" data-ng-init="searchAmazon()">
+  <div data-masonry-tile class="tile col-xs-12 col-md-6 col-lg-4" data-ng-repeat="product in products">
+    <div class="well">
+      <a data-ng-href="{{ product.DetailPageURL }}" target="_blank">{{ product.ItemAttributes.Title }}</a>
     </div>
   </div>
 </div>
 
-<h1 class="alert alert-danger"data-ng-show="!images.length && search && !loading">NOTHING FOUND</h1>
-
-<div class="row" id="top" data-ng-init="searchAmazon()">
-  <div class="well col-xs-12 col-md-6 col-lg-4" data-ng-repeat="product in products">
-    <a data-ng-href="{{ product.DetailPageURL }}" target="_blank">{{ product.ItemAttributes.Title }}</a>
-  </div>
-  <button class="col-sm-12 btn btn-primary btn-lg" data-ng-click="loadMore()" />Get More</button>
+<div class="row">
+  <button class="col-xs-12 btn btn-primary btn-lg" data-ng-click="loadMore()" />Get More</button>
 </div>

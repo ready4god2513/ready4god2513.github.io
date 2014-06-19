@@ -4,12 +4,18 @@
 
 
 <div class="row">
-  <div class="text-center col-sm-8 col-sm-offset-2">
+  <div class="col-xs-12">
     <div data-ng-hide="recent">
-      <input type="text" data-ng-model="search" class="col-sm-12 input-lg" placeholder="search images" id="searchTerm" />
+      <input type="text" data-ng-model="search" class="col-xs-12 input-lg" placeholder="search images" id="searchTerm" />
     </div>
-    <div data-ng-hide="recent"><input type="checkbox" data-ng-model="sub" />Search a Subreddit</div>
-    <div data-ng-hide="sub"><input type="checkbox" data-ng-model="recent" />Show Recent</div>
+    <div class="row">
+      <div class="pull-left col-xs-12 col-sm-3" data-ng-hide="recent">
+        <label><input type="checkbox" data-ng-model="sub" />Filter By Subreddit</label>
+      </div>
+      <div class="pull-left col-xs-12 col-sm-3" data-ng-hide="sub">
+        <label><input type="checkbox" data-ng-model="recent" />Show Recent</label>
+      </div>
+    </div>
     <hr  /><br />
   </div>
 </div>
